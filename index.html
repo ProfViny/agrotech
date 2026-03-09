@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroTech Máquinas | Tecnologia Agrícola e Equipamentos</title>
+  <meta name="description" content="Site de tecnologia agrícola com máquinas à venda, apresentação da empresa e página de orçamento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --verde-escuro:#1f5f3a;
+      --verde:#2f8f4e;
+      --verde-claro:#7acb88;
+      --laranja:#f28c28;
+      --laranja-escuro:#d96c0d;
+      --azul:#1f6fb2;
+      --azul-escuro:#154d7c;
+      --fundo:#f6f8f3;
+      --branco:#ffffff;
+      --texto:#243126;
+      --texto-suave:#5a6b5f;
+      --borda:#dfe7dc;
+      --sombra:0 14px 40px rgba(20, 54, 31, 0.10);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--fundo);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit}
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(12px);
+      background:rgba(246,248,243,0.90);
+      border-bottom:1px solid rgba(31,95,58,0.08);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:78px;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+
+    .brand-badge{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--verde-escuro),var(--verde),var(--laranja));
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      box-shadow:var(--sombra);
+    }
+
+    .brand small{
+      display:block;
+      font-size:.72rem;
+      color:var(--texto-suave);
+      font-weight:600;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+    }
+
+    .brand strong{
+      font-size:1.05rem;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:var(--texto);
+      font-weight:600;
+      transition:.25s;
+    }
+
+    .menu a:hover{color:var(--verde)}
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--laranja),var(--laranja-escuro));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(242,140,40,.28);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-outline{
+      border:1px solid rgba(31,95,58,.16);
+      background:#fff;
+      color:var(--verde-escuro);
+    }
+
+    .btn-outline:hover{
+      border-color:var(--verde);
+      color:var(--verde);
+    }
+
+    .hero{
+      padding:72px 0 44px;
+      overflow:hidden;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(47,143,78,.10);
+      color:var(--verde-escuro);
+      border:1px solid rgba(47,143,78,.14);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.3rem,4vw,4.4rem);
+      line-height:1.05;
+      margin-bottom:18px;
+      max-width:12ch;
+    }
+
+    .hero h1 span{color:var(--laranja)}
+
+    .hero p{
+      font-size:1.06rem;
+      color:var(--texto-suave);
+      max-width:60ch;
+      margin-bottom:26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:26px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .stat{
+      background:var(--branco);
+      border:1px solid var(--borda);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--sombra);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.4rem;
+      color:var(--verde-escuro);
+    }
+
+    .stat span{
+      font-size:.92rem;
+      color:var(--texto-suave);
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:520px;
+    }
+
+    .hero-card-main,
+    .hero-card-floating{
+      position:absolute;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+      border:1px solid rgba(255,255,255,.75);
+      background:#fff;
+    }
+
+    .hero-card-main{
+      inset:40px 0 0 40px;
+      background:linear-gradient(180deg, rgba(31,111,178,.10), rgba(122,203,136,.15)), #fff;
+      padding:18px;
+    }
+
+    .hero-card-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:22px;
+    }
+
+    .hero-card-floating{
+      left:0;
+      bottom:28px;
+      width:220px;
+      padding:18px;
+    }
+
+    .hero-card-floating h3{
+      color:var(--verde-escuro);
+      margin-bottom:8px;
+      font-size:1.1rem;
+    }
+
+    .hero-card-floating p{
+      font-size:.93rem;
+      color:var(--texto-suave);
+      margin:0;
+    }
+
+    .section{
+      padding:34px 0 72px;
+    }
+
+    .section-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      margin-bottom:26px;
+      flex-wrap:wrap;
+    }
+
+    .section-heading h2{
+      font-size:clamp(1.8rem,2.5vw,3rem);
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+
+    .section-heading p{
+      color:var(--texto-suave);
+      max-width:62ch;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin-top:8px;
+    }
+
+    .about-card{
+      background:var(--branco);
+      border:1px solid var(--borda);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--sombra);
+    }
+
+    .about-card h3{
+      color:var(--azul-escuro);
+      margin-bottom:12px;
+      font-size:1.25rem;
+    }
+
+    .about-card p{
+      color:var(--texto-suave);
+    }
+
+    .feature-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .feature-item{
+      background:rgba(47,143,78,.08);
+      border:1px solid rgba(47,143,78,.10);
+      padding:14px 16px;
+      border-radius:16px;
+      font-weight:600;
+      color:var(--verde-escuro);
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .product-card{
+      background:var(--branco);
+      border:1px solid var(--borda);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+      display:flex;
+      flex-direction:column;
+      transition:.28s ease;
+    }
+
+    .product-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(31,111,178,.20);
+    }
+
+    .product-image{
+      position:relative;
+      aspect-ratio: 4 / 3;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(31,111,178,.10), rgba(122,203,136,.18));
+    }
+
+    .product-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.4s ease;
+    }
+
+    .product-card:hover .product-image img{transform:scale(1.04)}
+
+    .product-badge{
+      position:absolute;
+      top:14px;
+      left:14px;
+      background:rgba(255,255,255,.92);
+      color:var(--azul-escuro);
+      border:1px solid rgba(31,111,178,.12);
+      padding:8px 12px;
+      font-size:.78rem;
+      border-radius:999px;
+      font-weight:800;
+    }
+
+    .product-body{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+
+    .product-title{
+      font-size:1.06rem;
+      line-height:1.35;
+      color:var(--texto);
+      font-weight:800;
+      min-height:58px;
+    }
+
+    .product-meta{
+      color:var(--texto-suave);
+      font-size:.93rem;
+      min-height:44px;
+    }
+
+    .product-price{
+      display:flex;
+      align-items:end;
+      gap:8px;
+      margin-top:auto;
+    }
+
+    .product-price strong{
+      font-size:1.4rem;
+      color:var(--laranja-escuro);
+    }
+
+    .product-price span{
+      color:var(--texto-suave);
+      font-size:.9rem;
+      margin-bottom:2px;
+    }
+
+    .product-actions{
+      display:flex;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .product-actions .btn{
+      width:100%;
+      padding:13px 16px;
+      border-radius:14px;
+      font-size:.95rem;
+    }
+
+    .quote-section{
+      background:linear-gradient(135deg, rgba(31,95,58,.96), rgba(31,111,178,.92));
+      color:#fff;
+      border-radius:36px;
+      padding:34px;
+      box-shadow:var(--sombra);
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:24px;
+      margin-top:18px;
+    }
+
+    .quote-copy h2{
+      font-size:clamp(1.9rem,3vw,3rem);
+      line-height:1.08;
+      margin-bottom:14px;
+    }
+
+    .quote-copy p{
+      color:rgba(255,255,255,.85);
+      max-width:48ch;
+    }
+
+    .quote-points{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .quote-points div{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      padding:14px 16px;
+      font-weight:600;
+    }
+
+    .quote-form{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:26px;
+      padding:22px;
+      backdrop-filter:blur(8px);
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .field{display:flex;flex-direction:column;gap:8px}
+    .field.full{grid-column:1/-1}
+
+    .field label{
+      font-weight:700;
+      font-size:.92rem;
+    }
+
+    .field input,
+    .field textarea,
+    .field select{
+      width:100%;
+      border:none;
+      border-radius:14px;
+      padding:14px 15px;
+      background:#fff;
+      color:var(--texto);
+      outline:none;
+    }
+
+    .field textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .quote-form button{
+      margin-top:10px;
+      width:100%;
+    }
+
+    .footer{
+      margin-top:72px;
+      background:#163421;
+      color:#eaf1eb;
+      padding:54px 0 20px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr .85fr;
+      gap:28px;
+      margin-bottom:24px;
+    }
+
+    .footer h3,
+    .footer h4{
+      margin-bottom:12px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a{
+      color:rgba(234,241,235,.82);
+    }
+
+    .footer ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .socials{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .social{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.08);
+      transition:.25s;
+    }
+
+    .social:hover{
+      transform:translateY(-3px);
+      background:rgba(242,140,40,.18);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:rgba(234,241,235,.72);
+      font-size:.92rem;
+    }
+
+    .mobile-toggle{
+      display:none;
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:14px;
+      background:#fff;
+      box-shadow:var(--sombra);
+      font-size:1.4rem;
+      cursor:pointer;
+    }
+
+    @media (max-width: 1100px){
+      .products-grid{grid-template-columns:repeat(3,1fr)}
+      .hero-wrap,
+      .quote-section,
+      .footer-grid,
+      .about-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:460px}
+    }
+
+    @media (max-width: 820px){
+      .mobile-toggle{display:block}
+      .menu{
+        position:absolute;
+        left:16px;
+        right:16px;
+        top:86px;
+        background:#fff;
+        border:1px solid var(--borda);
+        border-radius:22px;
+        box-shadow:var(--sombra);
+        padding:18px;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .menu.active{display:flex}
+      .nav{position:relative}
+      .products-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-stats,
+      .form-grid,
+      .feature-list{grid-template-columns:1fr}
+      .hero-card-main{inset:20px 0 0 20px}
+      .hero-card-floating{position:relative;left:auto;bottom:auto;width:100%;margin-top:18px}
+      .hero-visual{min-height:auto}
+    }
+
+    @media (max-width: 560px){
+      .hero{padding-top:40px}
+      .products-grid{grid-template-columns:1fr}
+      .container{width:min(100% - 22px, 1180px)}
+      .quote-section,
+      .about-card{padding:22px}
+      .hero h1{max-width:none}
+      .section{padding-bottom:56px}
+      .footer{margin-top:56px}
+      .brand strong{font-size:.96rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="brand-badge">AT</div>
+        <div>
+          <small>Tecnologia Agrícola</small>
+          <strong>AgroTech Máquinas</strong>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">☰</button>
+
+      <nav class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre o site</a>
+        <a href="#produtos">Máquinas à venda</a>
+        <a href="#orcamento">Orçamentos</a>
+        <a href="#contato">Contato</a>
+        <a href="#orcamento" class="btn btn-primary">Solicitar orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-wrap">
+        <div>
+          <div class="tag">Soluções em tecnologia para o agro</div>
+          <h1>Máquinas agrícolas com mais <span>força</span>, eficiência e inovação.</h1>
+          <p>
+            A AgroTech Máquinas é um site voltado para a venda e apresentação de equipamentos agrícolas,
+            conectando produtores, fazendas e empresas do agronegócio a máquinas modernas para preparo de solo,
+            plantio, pulverização, colheita e transporte.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Ver produtos</a>
+            <a href="#orcamento" class="btn btn-outline">Pedir orçamento</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>11</strong>
+              <span>máquinas em destaque</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>foco no agronegócio</span>
+            </div>
+            <div class="stat">
+              <strong>Suporte</strong>
+              <span>para orçamento rápido</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80" alt="Máquina agrícola em campo" />
+          </div>
+          <div class="hero-card-floating">
+            <h3>Pronto para o campo</h3>
+            <p>
+              Equipamentos para produtores que buscam desempenho, durabilidade e tecnologia aplicada ao dia a dia rural.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>O que é este site?</h2>
+            <p>
+              Este projeto foi pensado para funcionar como uma vitrine digital de máquinas agrícolas.
+              Aqui o visitante encontra os principais equipamentos disponíveis, seus valores e um caminho rápido para pedir orçamento.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <h3>Uma vitrine profissional para o agro</h3>
+            <p>
+              O site apresenta máquinas agrícolas de maneira organizada, com foto, nome do item, preço e botão de orçamento.
+              Isso facilita a navegação e deixa a experiência mais profissional para quem busca investir em equipamentos.
+            </p>
+            <div class="feature-list">
+              <div class="feature-item">Máquinas organizadas por destaque</div>
+              <div class="feature-item">Botão direto para orçamento</div>
+              <div class="feature-item">Layout moderno e responsivo</div>
+              <div class="feature-item">Visual com verde, laranja e azul</div>
+            </div>
+          </article>
+
+          <article class="about-card">
+            <h3>Tecnologia que conversa com o campo</h3>
+            <p>
+              As cores e o estilo visual foram escolhidos para remeter à força do agronegócio, à inovação tecnológica e à confiança.
+              O verde representa o campo, o laranja traz energia e destaque comercial, e o azul transmite tecnologia e credibilidade.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="produtos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Máquinas em destaque</h2>
+            <p>
+              Confira 11 itens à venda com apresentação visual, valor e botão para solicitar orçamento.
+            </p>
+          </div>
+          <a href="#orcamento" class="btn btn-outline">Ir para orçamento</a>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Trator</span>
+              <img src="1.jpg" alt="Trator agrícola de grande porte" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Trator Agrícola Kawashima TRD 253 4X4 Diesel 25Hp </h3>
+              <p class="product-meta">Alta potência para operações pesadas no campo.</p>
+              <div class="product-price"><strong>R$ 96.917</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Trator AgroForce 180">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Trator</span>
+              <img src="2.jpg" alt="Colheitadeira no campo" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Trator Agrícola a Diesel 18hp 4x2 com Santo Antônio</h3>
+              <p class="product-meta">Mais desempenho e produtividade na colheita.</p>
+              <div class="product-price"><strong>R$ R$ 35.991</strong><span>sob consulta</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Colheitadeira Max Harvest 500">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Trator</span>
+              <img src="3.jpg" alt="Pulverizador agrícola em lavoura" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Trator Agrícola Kawashima TRD 254 Cabinado 25 HP
+</h3>
+              <p class="product-meta">Precisão na aplicação com ampla cobertura.</p>
+              <div class="product-price"><strong>R$ 130.770</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Pulverizador Smart Spray 3200">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Motocultivador/span>
+              <img src="4.jpg" alt="Plantadeira agrícola moderna" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Motocultivador Tratorito Arador Solo Tobata Gas. 53cc 3,6hp</h3>
+              <p class="product-meta">Tecnologia em Tratorito.</p>
+              <div class="product-price"><strong>R$ 2.039,95</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Plantadeira Seed Pro 12L">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Compactador</span>
+              <img src="5.jpg" alt="Implemento agrícola para preparo de solo" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Compactador De Solo Motor Honda Gx120 Gasolina 4Hp - C6302
+</h3>
+              <p class="product-meta">Ideal para preparo de solo com robustez.</p>
+              <div class="product-price"><strong>R$ 4.833,51</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Grade Aradora Terra Firme 28D">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Plantadeira</span>
+              <img src="6.jpg" alt="Máquina adubadora agrícola" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Plantadeira Donna 11 Linhas Com Dosador De Sementes Selenium - Baldan
+</h3>
+              <p class="product-meta">Distribuição eficiente de fertilizantes.</p>
+              <div class="product-price"><strong>R$ 337,790,00</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Adubadora NutriCampo 2500">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Plantadeira</span>
+              <img src="7.jpg" alt="Semeadora em área rural" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Plantadeira Genius 15 Linhas 2018 Completa</h3>
+              <p class="product-meta">Mais controle e precisão na semeadura.</p>
+              <div class="product-price"><strong>R$ 230.000,00</strong><span>sob consulta</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Semeadora AgroLine 16">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Carreta</span>
+              <img src="8.jpg" alt="Carreta agrícola de transporte" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Plantadeira Agrícola Jumil 2040 3 Linhas Convencional: Eficiência e Precisão no Plantio Agrícola
+</h3>
+              <p class="product-meta">Transporte prático e reforçado para o campo.</p>
+              <div class="product-price"><strong>R$ 24.250,00</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Carreta MultiCampo 8T">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Plantadeira</span>
+              <img src="9.jpg" alt="Sistema de irrigação agrícola" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Knapik Plantadeira 3 linhas engate nos 3 pontos do trator
+</h3>
+              <p class="product-meta">Eficiência hídrica com controle inteligente.</p>
+              <div class="product-price"><strong>R$ 32.115</strong><span>sob medida</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Sistema de Irrigação AquaCrop X">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Plantadeira</span>
+              <img src="10.jpg" alt="Enfardadeira no campo" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Knapik Plantadeira 4 linhas engate nos 3 pontos do trator</h3>
+              <p class="product-meta">Agilidade na compactação com operação simples.</p>
+              <div class="product-price"><strong>R$ 42.685</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Enfardadeira FenoMax 900">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Drone Agrícola</span>
+              <img src="11.jpg" alt="Drone agrícola em operação" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Drone Agro Vision Pro 40L</h3>
+              <p class="product-meta">Plantadeira Donna 11 Linhas Com Dosador De Sementes Titanium E Controle De Profundidade - Baldan</p>
+              <div class="product-price"><strong>R$ 250.000,00</strong><span>sob consulta</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Drone Agro Vision Pro 40L">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="orcamento">
+      <div class="container">
+        <div class="quote-section">
+          <div class="quote-copy">
+            <h2>Página de orçamentos</h2>
+            <p>
+              Preencha o formulário para solicitar um orçamento da máquina desejada. Você pode informar o item escolhido,
+              quantidade, cidade e outros detalhes para facilitar o atendimento comercial.
+            </p>
+
+            <div class="quote-points">
+              <div>Atendimento para produtores, fazendas e empresas do agro</div>
+              <div>Espaço ideal para receber pedidos comerciais</div>
+              <div>Possibilidade de integração futura com WhatsApp ou formulário real</div>
+            </div>
+          </div>
+
+          <form class="quote-form" onsubmit="enviarOrcamento(event)">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+              </div>
+
+              <div class="field">
+                <label for="empresa">Empresa / Fazenda</label>
+                <input type="text" id="empresa" placeholder="Nome da empresa ou fazenda">
+              </div>
+
+              <div class="field">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+              </div>
+
+              <div class="field">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" placeholder="Sua cidade">
+              </div>
+
+              <div class="field full">
+                <label for="produto">Produto de interesse</label>
+                <select id="produto" required>
+                  <option value="">Selecione um produto</option>
+                  <option>Trator AgroForce 180</option>
+                  <option>Colheitadeira Max Harvest 500</option>
+                  <option>Pulverizador Smart Spray 3200</option>
+                  <option>Plantadeira Seed Pro 12L</option>
+                  <option>Grade Aradora Terra Firme 28D</option>
+                  <option>Adubadora NutriCampo 2500</option>
+                  <option>Semeadora AgroLine 16</option>
+                  <option>Carreta MultiCampo 8T</option>
+                  <option>Sistema de Irrigação AquaCrop X</option>
+                  <option>Enfardadeira FenoMax 900</option>
+                  <option>Drone Agro Vision Pro 40L</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="mensagem">Detalhes do orçamento</label>
+                <textarea id="mensagem" placeholder="Ex.: Gostaria de saber prazo, forma de pagamento, entrega e disponibilidade."></textarea>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar pedido de orçamento</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>AgroTech Máquinas</h3>
+          <p>
+            Tecnologia agrícola e máquinas para quem vive o campo com produtividade,
+            inovação e resultados. Um site pensado para vender equipamentos com presença digital profissional.
+          </p>
+          <div class="socials">
+            <a href="#" class="social" aria-label="Instagram">IG</a>
+            <a href="#" class="social" aria-label="Facebook">FB</a>
+            <a href="#" class="social" aria-label="WhatsApp">WA</a>
+            <a href="#" class="social" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre o site</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#orcamento">Orçamentos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li>contato@agrotechmaquinas.com</li>
+            <li>(11) 99999-9999</li>
+            <li>Atendimento comercial de segunda a sábado</li>
+            <li>Espaço para redes sociais e canais oficiais</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> AgroTech Máquinas. Todos os direitos reservados.</span>
+        <span>Site conceito para venda de máquinas agrícolas.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menu = document.getElementById('menu');
+    const toggle = document.getElementById('mobileToggle');
+    const produtoSelect = document.getElementById('produto');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('[data-produto]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        produtoSelect.value = btn.dataset.produto;
+      });
+    });
+
+    function enviarOrcamento(event){
+      event.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const produto = produtoSelect.value;
+      alert(`Obrigado, ${nome}! Seu pedido de orçamento para ${produto} foi registrado com sucesso.`);
+      event.target.reset();
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
