@@ -70,15 +70,25 @@
     }
 
     .brand-badge{
-      width:48px;
-      height:48px;
-      border-radius:16px;
-      background:linear-gradient(135deg,var(--verde-escuro),var(--verde),var(--laranja));
+      width:62px;
+      height:62px;
+      border-radius:18px;
+      background:transparent;
       display:grid;
       place-items:center;
-      color:#fff;
-      font-weight:800;
-      box-shadow:var(--sombra);
+      box-shadow:none;
+      overflow:visible;
+      border:none;
+      padding:0;
+      flex-shrink:0;
+    }
+
+    .brand-badge img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:18px;
     }
 
     .brand small{
@@ -330,6 +340,7 @@
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:22px;
+      align-items:stretch;
     }
 
     .product-card{
@@ -386,17 +397,17 @@
     }
 
     .product-title{
-      font-size:1.06rem;
+      font-size:1.02rem;
       line-height:1.35;
       color:var(--texto);
       font-weight:800;
-      min-height:58px;
+      min-height:72px;
     }
 
     .product-meta{
       color:var(--texto-suave);
       font-size:.93rem;
-      min-height:44px;
+      min-height:66px;
     }
 
     .product-price{
@@ -643,7 +654,7 @@
   <header class="topbar">
     <div class="container nav">
       <a href="#inicio" class="brand">
-        <div class="brand-badge">AT</div>
+        <div class="brand-badge"><img src="logo.png" alt="Logo AgroTech Máquinas"></div>
         <div>
           <small>Tecnologia Agrícola</small>
           <strong>AgroTech Máquinas</strong>
@@ -767,7 +778,7 @@
               <img src="1.jpg" alt="Trator agrícola de grande porte" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Trator Agrícola Kawashima TRD 253 4X4 Diesel 25Hp </h3>
+              <h3 class="product-title">Trator Agrícola Kawashima TRD 253 4X4 Diesel 25Hp</h3>
               <p class="product-meta">Alta potência para operações pesadas no campo.</p>
               <div class="product-price"><strong>R$ 96.917</strong><span>à vista</span></div>
               <div class="product-actions">
@@ -784,7 +795,7 @@
             <div class="product-body">
               <h3 class="product-title">Trator Agrícola a Diesel 18hp 4x2 com Santo Antônio</h3>
               <p class="product-meta">Mais desempenho e produtividade na colheita.</p>
-              <div class="product-price"><strong>R$ R$ 35.991</strong><span>sob consulta</span></div>
+              <div class="product-price"><strong>R$ 35.991</strong><span>sob consulta</span></div>
               <div class="product-actions">
                 <a class="btn btn-primary" href="#orcamento" data-produto="Colheitadeira Max Harvest 500">Fazer orçamento</a>
               </div>
@@ -797,8 +808,7 @@
               <img src="3.jpg" alt="Pulverizador agrícola em lavoura" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Trator Agrícola Kawashima TRD 254 Cabinado 25 HP
-</h3>
+              <h3 class="product-title">Trator Agrícola Kawashima TRD 254 Cabinado 25 HP</h3>
               <p class="product-meta">Precisão na aplicação com ampla cobertura.</p>
               <div class="product-price"><strong>R$ 130.770</strong><span>à vista</span></div>
               <div class="product-actions">
@@ -809,12 +819,12 @@
 
           <article class="product-card">
             <div class="product-image">
-              <span class="product-badge">Motocultivador/span>
+              <span class="product-badge">Motocultivador</span>
               <img src="4.jpg" alt="Plantadeira agrícola moderna" />
             </div>
             <div class="product-body">
               <h3 class="product-title">Motocultivador Tratorito Arador Solo Tobata Gas. 53cc 3,6hp</h3>
-              <p class="product-meta">Tecnologia em Tratorito.</p>
+              <p class="product-meta">Plantio uniforme com tecnologia de distribuição.</p>
               <div class="product-price"><strong>R$ 2.039,95</strong><span>à vista</span></div>
               <div class="product-actions">
                 <a class="btn btn-primary" href="#orcamento" data-produto="Plantadeira Seed Pro 12L">Fazer orçamento</a>
@@ -828,8 +838,7 @@
               <img src="5.jpg" alt="Implemento agrícola para preparo de solo" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Compactador De Solo Motor Honda Gx120 Gasolina 4Hp - C6302
-</h3>
+              <h3 class="product-title">Compactador De Solo Motor Honda Gx120 Gasolina 4Hp - C6302</h3>
               <p class="product-meta">Ideal para preparo de solo com robustez.</p>
               <div class="product-price"><strong>R$ 4.833,51</strong><span>à vista</span></div>
               <div class="product-actions">
@@ -844,8 +853,7 @@
               <img src="6.jpg" alt="Máquina adubadora agrícola" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Plantadeira Donna 11 Linhas Com Dosador De Sementes Selenium - Baldan
-</h3>
+              <h3 class="product-title">Plantadeira Donna 11 Linhas Com Dosador De Sementes Selenium - Baldan</h3>
               <p class="product-meta">Distribuição eficiente de fertilizantes.</p>
               <div class="product-price"><strong>R$ 337,790,00</strong><span>à vista</span></div>
               <div class="product-actions">
@@ -871,12 +879,11 @@
 
           <article class="product-card">
             <div class="product-image">
-              <span class="product-badge">Carreta</span>
+              <span class="product-badge">Plantadeira</span>
               <img src="8.jpg" alt="Carreta agrícola de transporte" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Plantadeira Agrícola Jumil 2040 3 Linhas Convencional: Eficiência e Precisão no Plantio Agrícola
-</h3>
+              <h3 class="product-title">Plantadeira Agrícola Jumil 2040 3 Linhas Convencional: Eficiência e Precisão no Plantio Agrícola</h3>
               <p class="product-meta">Transporte prático e reforçado para o campo.</p>
               <div class="product-price"><strong>R$ 24.250,00</strong><span>à vista</span></div>
               <div class="product-actions">
@@ -891,10 +898,9 @@
               <img src="9.jpg" alt="Sistema de irrigação agrícola" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Knapik Plantadeira 3 linhas engate nos 3 pontos do trator
-</h3>
+              <h3 class="product-title">Knapik Plantadeira 3 linhas engate nos 3 pontos do trator</h3>
               <p class="product-meta">Eficiência hídrica com controle inteligente.</p>
-              <div class="product-price"><strong>R$ 32.115</strong><span>sob medida</span></div>
+              <div class="product-price"><strong>R$ 214.500</strong><span>sob medida</span></div>
               <div class="product-actions">
                 <a class="btn btn-primary" href="#orcamento" data-produto="Sistema de Irrigação AquaCrop X">Fazer orçamento</a>
               </div>
@@ -922,11 +928,56 @@
               <img src="11.jpg" alt="Drone agrícola em operação" />
             </div>
             <div class="product-body">
-              <h3 class="product-title">Drone Agro Vision Pro 40L</h3>
-              <p class="product-meta">Plantadeira Donna 11 Linhas Com Dosador De Sementes Titanium E Controle De Profundidade - Baldan</p>
+              <h3 class="product-title">Plantadeira Donna 11 Linhas Com Dosador De Sementes Titanium E Controle De Profundidade - Baldan</h3>
+              <p class="product-meta">Plantadeira Donna</p>
               <div class="product-price"><strong>R$ 250.000,00</strong><span>sob consulta</span></div>
               <div class="product-actions">
                 <a class="btn btn-primary" href="#orcamento" data-produto="Drone Agro Vision Pro 40L">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">GPS</span>
+              <img src="12.jpg" alt="Microtrator agrícola" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Kit Gps Agrícola P/trator Droidguide 7 +antena Sinal Grátis Preto América Do Sul</h3>
+              <p class="product-meta">Equipamento compacto para pequenas propriedades e cultivos diversos.</p>
+              <div class="product-price"><strong>R$5.522</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Microtrator Diesel Compact Agro 15HP">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Pulverizador</span>
+              <img src="13.jpg" alt="Pulverizador costal motorizado" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Colheitadeira de Forragem (Ensiladeira) Matterhorn | Série MTMH Turbo</h3>
+              <p class="product-meta">Aplicação precisa para manutenção de lavouras e áreas de cultivo.</p>
+              <div class="product-price"><strong>R$100.000,00</strong><span>sob consulta</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Pulverizador Motorizado Campo Forte 25L">Fazer orçamento</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge">Roçadeira</span>
+              <img src="14.jpg" alt="Roçadeira agrícola profissional" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Kit Trator Monitor+camera Dianteira+traseira Escavadeira Preto</h3>
+              <p class="product-meta">Ideal para limpeza de terrenos, bordas e manutenção rural intensa.</p>
+              <div class="product-price"><strong>R$394,98</strong><span>à vista</span></div>
+              <div class="product-actions">
+                <a class="btn btn-primary" href="#orcamento" data-produto="Roçadeira Profissional Agro Cut 62CC">Fazer orçamento</a>
               </div>
             </div>
           </article>
@@ -988,6 +1039,9 @@
                   <option>Sistema de Irrigação AquaCrop X</option>
                   <option>Enfardadeira FenoMax 900</option>
                   <option>Drone Agro Vision Pro 40L</option>
+                  <option>Microtrator Diesel Compact Agro 15HP</option>
+                  <option>Pulverizador Motorizado Campo Forte 25L</option>
+                  <option>Roçadeira Profissional Agro Cut 62CC</option>
                 </select>
               </div>
 
